@@ -142,12 +142,6 @@ enum hitachi_ac1_remote_model_t {
   R_LT0541_HTA_B,      // (2) R-LT0541-HTA Remote in "B" setting.
 };
 
-/// MIRAGE A/C model numbers
-enum mirage_ac_remote_model_t {
-  KKG9AC1 = 1,  // (1) KKG9A-C1 Remote. (Default)
-  KKG29AC1,     // (2) KKG29A-C1 Remote.
-};
-
 /// Panasonic A/C model numbers
 enum panasonic_ac_remote_model_t {
   kPanasonicUnknown = 0,
@@ -164,12 +158,6 @@ enum sharp_ac_remote_model_t {
   A907 = 1,
   A705 = 2,
   A903 = 3,  // 820 too
-};
-
-/// TCL A/C model numbers
-enum tcl_ac_remote_model_t {
-  TAC09CHSD = 1,
-  GZ055BE1 = 2,
 };
 
 /// Voltas A/C model numbers
@@ -749,17 +737,10 @@ class IRsend {
   void sendBose(const uint64_t data, const uint16_t nbits = kBoseBits,
                 const uint16_t repeat = kNoRepeat);
 #endif  // SEND_BOSE
-#if SEND_ARRIS
-  void sendArris(const uint64_t data, const uint16_t nbits = kArrisBits,
-                 const uint16_t repeat = kNoRepeat);
-  static uint32_t toggleArrisRelease(const uint32_t data);
-  static uint32_t encodeArris(const uint32_t command, const bool release);
-#endif  // SEND_ARRIS
-#if SEND_RHOSS
-  void sendRhoss(const unsigned char data[],
-                 const uint16_t nbytes = kRhossStateLength,
-                 const uint16_t repeat = kRhossDefaultRepeat);
-#endif  // SEND_RHOSS
+#if SEND_MARIOKARTON
+  void sendMarioKarton(const uint64_t data, const uint16_t nbits = kMarioKartonBits,
+                const uint16_t repeat = kNoRepeat);
+#endif  // SEND_MARIOKARTON
 
  protected:
 #ifdef UNIT_TEST

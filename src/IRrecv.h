@@ -18,7 +18,7 @@
 const uint16_t kHeader = 2;        // Usual nr. of header entries.
 const uint16_t kFooter = 2;        // Usual nr. of footer (stop bits) entries.
 const uint16_t kStartOffset = 1;   // Usual rawbuf entry to start from.
-#define MS_TO_USEC(x) ((x) * 1000U)  // Convert milli-Seconds to micro-Seconds.
+#define MS_TO_USEC(x) (x * 1000U)  // Convert milli-Seconds to micro-Seconds.
 // Marks tend to be 100us too long, and spaces 100us too short
 // when received due to sensor lag.
 const uint16_t kMarkExcess = 50;
@@ -287,10 +287,6 @@ class IRrecv {
   bool decodeArgo(decode_results *results, uint16_t offset = kStartOffset,
                   const uint16_t nbits = kArgoBits, const bool strict = true);
 #endif  // DECODE_ARGO
-#if DECODE_ARRIS
-  bool decodeArris(decode_results *results, uint16_t offset = kStartOffset,
-                   const uint16_t nbits = kArrisBits, const bool strict = true);
-#endif  // DECODE_ARRIS
 #if DECODE_SONY
   bool decodeSony(decode_results *results, uint16_t offset = kStartOffset,
                   const uint16_t nbits = kSonyMinBits,
@@ -770,10 +766,10 @@ class IRrecv {
   bool decodeBose(decode_results *results, uint16_t offset = kStartOffset,
                   const uint16_t nbits = kBoseBits, const bool strict = true);
 #endif  // DECODE_BOSE
-#if DECODE_RHOSS
-  bool decodeRhoss(decode_results *results, uint16_t offset = kStartOffset,
-                   const uint16_t nbits = kRhossBits, const bool strict = true);
-#endif  // DECODE_RHOSS
+#if DECODE_MARIOKARTON
+  bool decodeMarioKarton(decode_results *results, uint16_t offset = kStartOffset,
+                  const uint16_t nbits = kMarioKartonBits, const bool strict = true);
+#endif  // DECODE_MARIOKARTON
 };
 
 #endif  // IRRECV_H_
