@@ -720,8 +720,6 @@ uint16_t IRsend::defaultBits(const decode_type_t protocol) {
       return kHitachiAc424Bits;
     case KELVINATOR:
       return kKelvinatorBits;
-    case MARIOKARTON:
-      return kMarioKartonBits;
     case MILESTAG2:
       return kMilesTag2ShotBits;
     case MIRAGE:
@@ -763,6 +761,8 @@ uint16_t IRsend::defaultBits(const decode_type_t protocol) {
       return kWhirlpoolAcBits;
     case XMP:
       return kXmpBits;
+    case MARIOKARTON:
+      return kMarioKartonBits;
     // No default amount of bits.
     case FUJITSU_AC:
     case MWM:

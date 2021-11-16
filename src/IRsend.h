@@ -740,7 +740,7 @@ class IRsend {
 #if SEND_MARIOKARTON
   void sendMarioKarton(const uint64_t data, const uint16_t nbits = kMarioKartonBits,
                 const uint16_t repeat = kNoRepeat);
-#endif  // SEND_MARIOKARTON
+#endif  // SEND_BOSE
 
  protected:
 #ifdef UNIT_TEST

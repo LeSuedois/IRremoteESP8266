@@ -1037,9 +1037,9 @@ bool IRrecv::decode(decode_results *results, irparams_t *save,
     if (decodeBose(results, offset)) return true;
 #endif  // DECODE_BOSE
 #if DECODE_MARIOKARTON
-    DPRINTLN("Attempting Mariokarton decode");
-    if (decodeMarioKarton(results, offset)) return true;
-#endif  // DECODE_MARIOKARTON
+    DPRINTLN("Attempting MarioKarton decode");
+    if (decodeMarioKarton(results)) return true;
+#endif  // DECODE_BOSE
   // Typically new protocols are added above this line.
   }
 #if DECODE_HASH

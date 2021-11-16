@@ -29,7 +29,7 @@ using irutils::addIntToString;
 using irutils::addLabeledString;
 using irutils::addModeToString;
 using irutils::addTempToString;
-using irutils::addToggleToString;
+
 
 #if SEND_TRANSCOLD
 /// Send a Transcold message
@@ -391,7 +391,13 @@ String IRTranscoldAc::toString(void) const {
   result += addBoolToString(getPower(), kPowerStr, false);
   if (!getPower()) return result;  // If it's off, there is no other info.
   // Special modes.
-  if (getSwing()) return result + addToggleToString(true, kSwingStr);
+  if (getSwing()) {
+    result += kCommaSpaceStr;
+    result += kSwingStr;
+    result += kColonSpaceStr;
+    result += kToggleStr;
+    return result;
+  }
   result += addModeToString(getMode(), kTranscoldAuto, kTranscoldCool,
                             kTranscoldHeat, kTranscoldDry, kTranscoldFan);
   result += addIntToString(_.Fan, kFanStr);
